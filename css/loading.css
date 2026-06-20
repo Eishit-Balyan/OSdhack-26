@@ -1,23 +1,11 @@
-/* ============================================================
- * loading.css — BIOS-Style Loading Screen
- * ============================================================
- * PURPOSE:
- *   Green phosphor terminal aesthetic, like a retro BIOS boot.
- *   Pizza-slice loading bar, boot check messages with [OK],
- *   console output, and a pizza tip box with mascot.
- *
- * REFERENCE STYLE:
- *   Green monospace text on dark background, BIOS header,
- *   dot-padded status lines, emoji pizza loading segments,
- *   bordered tip box at bottom.
- *
+/*
  * CUSTOMIZATION:
  *   - CONFIG.loadingBackground: replaces the dark background
  *   - CONFIG.pizzaSprite: mascot image in the tip box
  *   - CONFIG.pizzaFacts[]: rotating tip messages
  * ============================================================ */
 
-/* ---- LOADING SCREEN ---- */
+/* LOADING SCREEN*/
 .loading-screen {
   position: absolute;
   inset: 0;
@@ -36,8 +24,7 @@
   transition: opacity 0.5s ease;
 }
 
-/* Dark terminal background overlay that sits behind text
-   but fades away early to reveal the theme */
+
 .loading-screen::before {
   content: '';
   position: absolute;
@@ -69,7 +56,7 @@
   z-index: 1;
 }
 
-/* ---- ALL LOADING CONTENT ---- */
+/* ALL LOADING CONTENT*/
 .loading-content {
   position: relative;
   z-index: 2;
@@ -80,9 +67,9 @@
   gap: 0;
 }
 
-/* ============================================================
+/* 
    BIOS HEADER
-   ============================================================ */
+*/
 .bios-header {
   font-size: clamp(10px, 2.5vw, 16px);
   color: #39ff14;
@@ -100,9 +87,9 @@
   letter-spacing: 1px;
 }
 
-/* ============================================================
+/* 
    BOOT CHECK LINES — "> MEMORY CHECK...........[OK]"
-   ============================================================ */
+*/
 .boot-checks {
   display: flex;
   flex-direction: column;
@@ -131,9 +118,9 @@
   100% { opacity: 1; transform: translateX(0); }
 }
 
-/* ============================================================
+/* 
    LOADING SECTION — "LOADING ARCADE OS..." + pizza bar
-   ============================================================ */
+   */
 .loading-section {
   margin-bottom: 14px;
 }
@@ -160,7 +147,6 @@
 }
 
 /* ---- PIZZA SLICE LOADING BAR ----
- * Uses pizza emoji slices for filled and dark squares for empty.
  * 10 segments total. Each "lights up" as a pizza slice.
  */
 .pizza-bar-container {
@@ -212,9 +198,9 @@
   min-width: 50px;
 }
 
-/* ============================================================
+/*
    CONSOLE OUTPUT — "> MOUNTING PIZZA DRIVE...."
-   ============================================================ */
+ */
 .loading-console {
   width: 100%;
   max-width: 620px;
@@ -255,10 +241,7 @@
   50%      { opacity: 0; }
 }
 
-/* ============================================================
-   PIZZA TIP BOX — "TODAY'S PIZZA TIP:"
-   Bordered box at bottom with fact text and mascot.
-   ============================================================ */
+
 .pizza-tip-box {
   width: 100%;
   max-width: 500px;
@@ -315,7 +298,7 @@
   75%      { transform: translateY(-4px) rotate(-3deg); }
 }
 
-/* ---- POWERED BY FOOTER ---- */
+
 .loading-footer {
   position: absolute;
   bottom: clamp(8px, 2%, 16px);

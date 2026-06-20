@@ -1,25 +1,11 @@
-/* ============================================================
- * menu.css — Circular Navigation Menu
- * ============================================================
- * PURPOSE:
- *   The main navigation hub. Items orbit in an elliptical ring
- *   around a centered logo. Visible dashed orbit path connects
- *   all nodes. Golden arcade-cabinet aesthetic.
- *
- * REFERENCE STYLE:
- *   Night sky background, large center logo, golden circle icons
- *   with pixel-art SVG symbols, dashed elliptical orbit line,
- *   "PRESS START" below the logo.
- *
+/*
  * CUSTOMIZATION:
  *   - --ring-rx / --ring-ry: ellipse horizontal/vertical radii
  *   - --node-color: accent color per node (or global gold)
  *   - CONFIG.menuItems[]: add/remove/reorder items
  * ============================================================ */
 
-/* ---- MENU SCREEN ----
- * Uses the night-sky + trees + water scene as its background.
- * This matches the reference image aesthetic.
+/* 
  */
 .menu-screen {
   position: absolute;
@@ -43,11 +29,6 @@
   display: flex;
 }
 
-/* ============================================================
-   RING CONTAINER + DASHED ORBIT PATH
-   ============================================================ */
-
-/* The ring container: zero-size element at center */
 .menu-ring {
   position: absolute;
   top: 50%;
@@ -57,10 +38,7 @@
   z-index: 15;
 }
 
-/* ---- DASHED ORBIT PATH ----
- * A visible dashed elliptical line connecting all menu nodes.
- * Matches the orange dashed orbit shown in the reference image.
- */
+
 .menu-orbit-path {
   position: absolute;
   top: 50%;
@@ -80,9 +58,7 @@
   stroke-linecap: round;
 }
 
-/* ============================================================
-   MENU NODE — Golden arcade-style circle button
-   ============================================================ */
+
 .menu-node {
   position: absolute;
   display: flex;
@@ -109,10 +85,6 @@
   z-index: 16;
 }
 
-/* ---- NODE ICON CIRCLE ----
- * Round golden border with dark interior.
- * Contains the SVG pixel-art icon.
- */
 .menu-node-icon {
   width: 100px;
   height: 100px;
@@ -149,9 +121,7 @@
   transition: all 0.3s ease;
 }
 
-/* ---- NODE LABEL ----
- * Text below each circle. Golden color.
- */
+
 .menu-node-label {
   font-size: 10px;
   color: var(--node-color, #39ff14);
@@ -162,10 +132,10 @@
   text-shadow: 0 0 4px rgba(57, 255, 20, 0.5);
 }
 
-/* ============================================================
+/*
    SELECTED STATE
    The currently highlighted node glows brighter.
-   ============================================================ */
+*/
 .menu-node.selected {
   opacity: 1;
   filter: brightness(1);
@@ -308,7 +278,7 @@
   min-height: 14px;
 }
 
-/* ---- BOTTOM PROMPT ---- */
+/*BOTTOM PROMPT */
 .menu-select-prompt {
   position: absolute;
   bottom: 4%;

@@ -1,26 +1,9 @@
-/* ============================================================
- * menu.js — Circular Menu Controller (Elliptical Ring)
- * ============================================================
- * PURPOSE:
- *   Renders and controls the elliptical navigation ring.
- *   All items from CONFIG.menuItems are positioned using
- *   sin/cos on an ellipse (wider than tall).
- *
- * FEATURES:
- *   - Elliptical orbit with visible dashed path (SVG)
- *   - Pixel-art SVG icons in golden circles
- *   - Ring slowly auto-rotates, pauses on hover
- *   - Night scene background with stars/trees/water
- *   - Logo in center, "PRESS START" below
- *   - Keyboard: Arrow keys, WASD; Enter to select
- *   - Mouse: hover glow, click to select
- *   - Gamepad: D-pad/joystick, A to select
- *
+/*
  * CUSTOMIZATION:
  *   - CONFIG.menuItems[]: add/remove/reorder
  *   - CONFIG.logo: center logo image
  *   - CONFIG.timings.menuRotationSpeed: seconds per full orbit
- * ============================================================ */
+ */
 
 const MenuScreen = (() => {
   'use strict';
@@ -32,13 +15,7 @@ const MenuScreen = (() => {
   let rotationPaused = false;
   let stopRotation = null;
   let nodes = [];
-
-  /* ---- PIXEL-ART SVG ICONS ----
-   * Each icon is an inline SVG matching the golden arcade style.
-   * These are used as the visual inside each menu node circle.
-   * If you want to use image files instead, set icon in CONFIG
-   * to a file path and this will be skipped.
-   */
+//barbaad
   const SVG_ICONS = {
     about: `<svg viewBox="0 0 32 32"><circle cx="16" cy="8" r="4"/><rect x="13" y="14" width="6" height="14" rx="1"/><rect x="12" y="14" width="8" height="3" rx="1"/></svg>`,
     tracks: `<svg viewBox="0 0 32 32"><path d="M12 4v18c-1.5-1-3.5-1.5-5 0-2 2-1 5 2 5s5-2 5-4V10h8v10c-1.5-1-3.5-1.5-5 0-2 2-1 5 2 5s5-2 5-4V4H12z"/></svg>`,
@@ -54,7 +31,7 @@ const MenuScreen = (() => {
     contact: `<svg viewBox="0 0 32 32"><rect x="2" y="6" width="28" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M2 8l14 10L30 8" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>`,
   };
 
-  /* ---- SHOW MENU SCREEN ---- */
+  /*SHOW MENU SCREEN*/
   function show() {
     const screen = $('menuScreen');
     if (!screen) return;
@@ -169,7 +146,7 @@ const MenuScreen = (() => {
     });
   }
 
-  /* ---- POSITION NODES (elliptical) ---- */
+
   function positionNodes() {
     const total = nodes.length;
     if (total === 0) return;
@@ -182,7 +159,7 @@ const MenuScreen = (() => {
       const finalAngle = baseAngle + rotationAngle;
       const rad = Utils.degToRad(finalAngle);
 
-      // Elliptical: cos for x, sin for y
+    
       const cx = Math.cos(rad);
       const cy = Math.sin(rad);
 
@@ -193,7 +170,7 @@ const MenuScreen = (() => {
     updateSelection();
   }
 
-  /* ---- UPDATE SELECTION ---- */
+
   function updateSelection() {
     nodes.forEach((node, i) => {
       node.classList.toggle('selected', i === currentIndex);
@@ -207,7 +184,7 @@ const MenuScreen = (() => {
     }
   }
 
-  /* ---- AUTO-ROTATION ---- */
+
   function startRotation() {
     const speed = 360 / CONFIG.timings.menuRotationSpeed;
 
@@ -219,7 +196,7 @@ const MenuScreen = (() => {
     });
   }
 
-  /* ---- NAVIGATE ---- */
+
   function navigate(direction) {
     if (!active) return;
     const total = CONFIG.menuItems.length;
@@ -230,7 +207,7 @@ const MenuScreen = (() => {
     setTimeout(() => { rotationPaused = false; }, 2000);
   }
 
-  /* ---- SELECT CURRENT ---- */
+
   function selectCurrent() {
     if (!active) return;
     const item = CONFIG.menuItems[currentIndex];
@@ -246,7 +223,6 @@ const MenuScreen = (() => {
     }, 600);
   }
 
-  /* ---- INPUT BINDING ---- */
   function bindInputs() {
     document.addEventListener('keydown', onKey);
     document.addEventListener('gamepad:left',  () => navigate(-1));

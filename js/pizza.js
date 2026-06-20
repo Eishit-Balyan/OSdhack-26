@@ -10,11 +10,11 @@ const PizzaGame = (() => {
   ];
 
   const comicWords = ['MUNCH!','NOM NOM!','CHOMP!','CRUNCH!','YUMMY!','SLURP!','DEVOURED!','RIZZED UP!','IT HIT 🔥','NO CAP!','BUSSIN!','SLAY! 💅','PERIODT!'];
-  const wordColors = ['#ffd700','#ff4500','#00ff88','#ff00ff','#00cfff','#ffaa00'];
+  const wordColors = ['#222017ff','#ff4500','#00ff88','#ff00ff','#00cfff','#ffaa00'];
 
   function playMunch() {
-    /* ── AUDIO COMMENTED OUT AS REQUESTED ── */
-    // Paste your munch audio files logic here
+    /*back mucn*/
+   
     /*
     const audio = new Audio('path/to/munch.mp3');
     audio.play();
@@ -22,8 +22,8 @@ const PizzaGame = (() => {
   }
 
   function playBurp() {
-    /* ── AUDIO COMMENTED OUT AS REQUESTED ── */
-    // Paste your burp audio files logic here
+    /* backup burp */
+  
     /*
     const audio = new Audio('path/to/burp.mp3');
     audio.play();
@@ -187,7 +187,7 @@ const PizzaGame = (() => {
   return { init };
 })();
 
-// Initialize on DOM load just in case, but usually init when shown
+//Dom load just in case
 document.addEventListener('DOMContentLoaded', () => {
     PizzaGame.init();
 });

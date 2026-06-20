@@ -1,15 +1,11 @@
-/* ============================================================
- * utils.js — Shared Utility Functions
- * ============================================================
- * PURPOSE:
- *   Reusable helpers used across all modules.
+/*
  *   DOM shortcuts, math, random, interpolation, etc.
- * ============================================================ */
+*/
 
 const Utils = (() => {
   'use strict';
 
-  /* ---- DOM SHORTCUTS ---- */
+  /* DOM SHORTCUTS*/
 
   /** Shorthand for document.getElementById */
   function $(id) {
@@ -108,12 +104,7 @@ const Utils = (() => {
     return () => { running = false; };
   }
 
-  /* ---- BACKGROUND RENDERER ----
-   * Sets a background on a container from a config path.
-   * Auto-detects format from file extension.
-   *
-   * Injects an absolutely-positioned element so the background
-   * reliably renders regardless of browser CSS custom-property quirks.
+  /*BACKGROUND RENDERER
    *
    * USAGE:
    *   Utils.setBackground(containerEl, CONFIG.startBackground);
@@ -161,13 +152,7 @@ const Utils = (() => {
     }
   }
 
-  /* ---- TYPEWRITER EFFECT ----
-   * Types text character-by-character into an element.
-   * Returns a promise that resolves when typing is done.
-   *
-   * USAGE:
-   *   await Utils.typewriter(element, "Hello world", 40);
-   */
+  
   async function typewriter(element, text, charDelay = 35) {
     element.textContent = '';
     for (let i = 0; i < text.length; i++) {

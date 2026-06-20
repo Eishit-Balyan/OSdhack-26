@@ -1,6 +1,4 @@
-/* ============================================================
- * animations.css — Shared Keyframe Animations
- * ============================================================
+/*
  * PURPOSE:
  *   Reusable keyframe animations used across multiple screens.
  *   CRT-specific animations are in crt.css.
@@ -13,7 +11,7 @@
  *   - Generic float, pulse, glow utilities
  * ============================================================ */
 
-/* ---- SCANLINE SCROLL ---- */
+/*SCANLINE SCROLL*/
 @keyframes scanlineScroll {
   0%   { transform: translateY(0); }
   100% { transform: translateY(4px); }

@@ -1,25 +1,6 @@
-/* ============================================================
- * loading.js — BIOS-Style Loading Screen Controller
- * ============================================================
- * PURPOSE:
- *   Green phosphor terminal that mimics an arcade BIOS boot:
- *   1. BIOS header appears
- *   2. Boot check lines appear one by one with [OK]
- *   3. Pizza-slice loading bar fills (🍕 segments)
- *   4. Console messages scroll
- *   5. Pizza tip rotates at bottom
- *   Then transitions to the Start Screen.
- *
- * CUSTOMIZATION:
- *   - CONFIG.loadingBackground: screen background
- *   - CONFIG.pizzaSprite: mascot in the tip box
- *   - CONFIG.pizzaFacts[]: rotating tip messages
- *   - CONFIG.timings.loadingDuration: total load time
- *   - CONFIG.timings.factRotateInterval: ms between tips
- *
- * FLOW:
+/* FLOW:
  *   LoadingScreen.start(onComplete) → fills bar → calls callback
- * ============================================================ */
+*/
 
 const LoadingScreen = (() => {
   'use strict';
@@ -27,10 +8,7 @@ const LoadingScreen = (() => {
   const $ = Utils.$;
   let onCompleteCallback = null;
 
-  /* ---- BOOT CHECK MESSAGES ----
-   * These appear as BIOS-style status lines with dot padding.
-   * Format: "> TEXT...........[OK]"
-   */
+  
   const BOOT_CHECKS = [
     { text: 'MEMORY CHECK', dots: 15 },
     { text: 'PIZZA DRIVE DETECTED', dots: 10 },
@@ -39,9 +17,7 @@ const LoadingScreen = (() => {
     { text: 'CHEESE PROTOCOL ENABLED', dots: 7 },
   ];
 
-  /* ---- CONSOLE MESSAGES ----
-   * Scroll below the loading bar during progress.
-   */
+  
   const CONSOLE_MSGS = [
     '> MOUNTING PIZZA DRIVE....',
     '> LOADING TRACK DATABASE....',
@@ -62,7 +38,7 @@ const LoadingScreen = (() => {
     // Apply config background if set
     Utils.setBackground(screen, CONFIG.loadingBackground);
 
-    // Set mascot in tip box
+
     const mascotImg = $('tipMascotImg');
     const mascotFallback = $('tipMascotFallback');
     if (mascotImg && CONFIG.pizzaSprite) {
@@ -78,7 +54,7 @@ const LoadingScreen = (() => {
     runBootSequence();
   }
 
-  /* ---- BOOT SEQUENCE ---- */
+  /* BOOT SEQUENCE*/
   async function runBootSequence() {
     const duration = CONFIG.timings.loadingDuration;
 

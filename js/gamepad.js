@@ -1,21 +1,9 @@
-/* ============================================================
- * gamepad.js — Gamepad / Controller Support
- * ============================================================
- * PURPOSE:
- *   Polls connected gamepads each frame.
- *   Emits custom events that other modules can listen for:
- *     'gamepad:up', 'gamepad:down', 'gamepad:left', 'gamepad:right'
- *     'gamepad:a', 'gamepad:b'
- *
- * CUSTOMIZATION:
- *   Button/axis mappings follow the "Standard Gamepad" layout.
- *   Adjust BUTTON_MAP or AXIS_THRESHOLD if your controller differs.
- *
+/*
  * USAGE:
  *   document.addEventListener('gamepad:a', handler);
  *   Gamepad.start();  // begin polling
  *   Gamepad.stop();   // stop polling
- * ============================================================ */
+*/
 
 const Gamepad = (() => {
   'use strict';

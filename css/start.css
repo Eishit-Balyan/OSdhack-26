@@ -1,17 +1,3 @@
-/* ============================================================
- * start.css — Press Start (Title) Screen
- * ============================================================
- * PURPOSE:
- *   The "attract screen" shown after loading.
- *   Contains: logo placeholder, floating mascot,
- *   "PRESS START" arcade text, ambient particles.
- *
- * CUSTOMIZATION:
- *   - CONFIG.startBackground replaces the gradient
- *   - CONFIG.logo fills #logoPlaceholder
- *   - CONFIG.mascotImage fills #floatingMascot
- *   - Adjust animation timings for different feel
- * ============================================================ */
 
 /* ---- START SCREEN ---- */
 .start-screen {
@@ -34,7 +20,7 @@
   display: flex;
 }
 
-/* ---- LOGO PLACEHOLDER ----
+
  * THIS IS WHERE YOUR EVENT LOGO GOES.
  * Set CONFIG.logo to your logo image path.
  * If empty, a text fallback renders automatically.
@@ -49,8 +35,7 @@
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   z-index: 10;
-  /* NO animation here — float animation lives on .logo-image below
-     so it doesn't conflict with the translateX(-50%) centering */
+  /* no animation here*/
   width: 100%;
   display: flex;
   justify-content: center;
@@ -93,8 +78,6 @@
 }
 
 /* ---- FLOATING MASCOT ----
- * SET VIA CONFIG: CONFIG.mascotImage = "assets/images/mascot.png"
- * The mascot floats, rotates subtly, and has a shadow.
  */
 .floating-mascot {
   position: absolute;
@@ -127,10 +110,8 @@
   75%      { transform: rotate(-3deg); }
 }
 
-/* ---- PRESS START TEXT ----
- * The big blinking arcade "PRESS START" message.
- * Pulses with glow, bloom, and opacity.
- */
+
+ 
 .press-start-text {
   position: absolute;
   bottom: 10%;

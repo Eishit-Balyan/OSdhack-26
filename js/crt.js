@@ -1,24 +1,7 @@
-/* ============================================================
- * crt.js — CRT Monitor Effects & Power-On Sequence
- * ============================================================
- * PURPOSE:
- *   Controls the CRT frame visual effects and the boot-up animation.
- *
- * POWER-ON SEQUENCE:
- *   1. Black screen
- *   2. CRT startup flicker (brightness pulse)
- *   3. Horizontal line expands from center
- *   4. Static/noise burst
- *   5. Screen fills → loading screen appears
- *
- * ONGOING EFFECTS:
- *   - Random subtle flicker
- *   - Occasional static flash
- *   - Noise grain overlay
- *
+/*
  * CUSTOMIZATION:
  *   Adjust CONFIG.timings.crtBootDuration to change boot speed.
- * ============================================================ */
+*/
 
 const CRT = (() => {
   'use strict';
@@ -27,9 +10,7 @@ const CRT = (() => {
 
   let booted = false;
 
-  /* ---- POWER-ON BOOT SEQUENCE ----
-   * Returns a Promise that resolves when the boot animation finishes.
-   * Call this once on page load before showing any screen.
+  /*POWER-ON BOOT SEQUENCE
    */
   async function boot() {
     if (booted) return;
@@ -80,9 +61,7 @@ const CRT = (() => {
     startAmbientEffects();
   }
 
-  /* ---- AMBIENT CRT EFFECTS ----
-   * Occasional subtle flicker and static flash.
-   * Runs continuously after boot.
+  /*AMBIENT CRT EFFECTS
    */
   function startAmbientEffects() {
     const flicker = $('crtFlicker');
@@ -101,10 +80,7 @@ const CRT = (() => {
     scheduleFlicker();
   }
 
-  /* ---- GLITCH TRANSITION ----
-   * Plays a brief CRT glitch effect (used for screen transitions).
-   * Returns a Promise that resolves when the glitch is done.
-   */
+   
   async function glitchTransition() {
     const overlay = $('crtGlitchOverlay');
     if (!overlay) return;

@@ -1,23 +1,7 @@
-/* ============================================================
- * start.js — Press Start (Title) Screen Controller
- * ============================================================
- * PURPOSE:
- *   The "attract screen" shown after loading completes.
- *   Shows: logo placeholder, floating mascot, PRESS START text,
- *   and ambient particles.
- *
- * CUSTOMIZATION:
- *   - CONFIG.logo: path to event logo image
- *   - CONFIG.mascotImage: path to floating mascot PNG
- *   - CONFIG.startBackground: screen background
- *
- * CONTROLS:
- *   Enter, Space, Mouse Click, Touch Tap, Controller A button
- *   all trigger the transition to the Main Menu.
- *
+/* 
  * FLOW:
  *   StartScreen.show() → user presses start → calls onStart callback
- * ============================================================ */
+*/
 
 const StartScreen = (() => {
   'use strict';
@@ -62,17 +46,13 @@ const StartScreen = (() => {
     screen.classList.add('active');
     active = true;
 
-    // Start ambient particles
     spawnParticles(screen);
 
     // Bind input handlers
     bindInputs();
   }
 
-  /* ---- AMBIENT PARTICLES ----
-   * Small glowing dots that drift upward.
-   * Very lightweight — ~15 at a time.
-   */
+  
   function spawnParticles(container) {
     const colors = [
       CONFIG.colors.primary, CONFIG.colors.neonCyan,
@@ -102,9 +82,9 @@ const StartScreen = (() => {
     }, 300);
   }
 
-  /* ---- INPUT BINDING ---- */
+  /*INPUT BINDING */
   function bindInputs() {
-    // Keyboard: Enter or Space
+    // Keyboard
     document.addEventListener('keydown', onKey);
 
     // Mouse click on the screen
@@ -136,7 +116,7 @@ const StartScreen = (() => {
     }
   }
 
-  /* ---- ACTIVATE (PRESS START) ---- */
+  /*ACTIVATE (PRESS START)*/
   async function onActivate() {
     if (!active) return;
     active = false;

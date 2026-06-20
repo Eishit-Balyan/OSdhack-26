@@ -1,11 +1,4 @@
-/* ============================================================
- * responsive.css — Media Queries for All Screens
- * ============================================================
- * PURPOSE:
- *   Adapt the CRT frame and all screens across device sizes.
- *   IMPORTANT: The circular menu layout is NEVER collapsed
- *   into a vertical list. It always remains circular.
- *
+/*
  * BREAKPOINTS:
  *   Desktop: ≥1024px — Full experience
  *   Tablet:  768–1023px — Slightly smaller ring and CRT
@@ -186,9 +179,6 @@
   }
 }
 
-/* ============================================================
-   LANDSCAPE PHONE
-   ============================================================ */
 @media (max-height: 500px) and (orientation: landscape) {
   .menu-ring {
     --ring-radius: min(30vh, 18vw, 130px);
